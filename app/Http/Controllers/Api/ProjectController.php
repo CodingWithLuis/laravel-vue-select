@@ -17,7 +17,7 @@ class ProjectController extends Controller
      */
     public function index()
     {
-        return ProjectResource::collection(Project::all());
+        return ProjectResource::collection(Project::with(['status'])->get());
     }
 
     /**
