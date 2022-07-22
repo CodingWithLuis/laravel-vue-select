@@ -1,5 +1,10 @@
 <template>
-    <table class="table table-bordered" id="user_table">
+    <div class="btn btn-success">
+        <router-link :to="{ name: 'projects.create' }" class="text-white"
+            >Nuevo proyecto</router-link
+        >
+    </div>
+    <table class="table table-bordered mt-3" id="user_table">
         <thead>
             <tr>
                 <th>Projecto</th>

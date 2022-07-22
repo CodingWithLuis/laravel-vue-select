@@ -28,7 +28,9 @@ class ProjectController extends Controller
      */
     public function store(StoreProjectRequest $request)
     {
-        //
+        $project = Project::create($request->validated());
+
+        return new ProjectResource($project);
     }
 
     /**

@@ -18,7 +18,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('description');
-            $table->foreignIdFor(Status::class);
+            $table->foreignId('status_id');
             $table->timestamps();
         });
     }

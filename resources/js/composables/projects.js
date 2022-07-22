@@ -15,7 +15,7 @@ export default function useProjects() {
         projects.value = response.data.data
     }
 
-    const storeProjects = async (data) => {
+    const storeProject = async (data) => {
 
         try {
 
@@ -31,7 +31,7 @@ export default function useProjects() {
 
     return {
         getProjects,
-        storeProjects,
+        storeProject,
         projects,
         errors
     }
