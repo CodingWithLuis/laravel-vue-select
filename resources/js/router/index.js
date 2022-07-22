@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
 
-import ProjectsIndex from '../components/projects/Index.vue'
-import ProjectsCreate from '../components/projects/Create.vue'
+const ProjectsIndex = () => import('../components/projects/Index.vue')
+const ProjectsCreate = () => import('../components/projects/Create.vue')
 
 const routes = [
     {
