@@ -1,0 +1,34 @@
+<?php
+
+namespace Database\Seeders;
+
+use App\Models\Status;
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use Illuminate\Database\Seeder;
+
+class StatusSeeder extends Seeder
+{
+    /**
+     * Run the database seeds.
+     *
+     * @return void
+     */
+    public function run()
+    {
+        $statuses = [
+            [
+                'name' => 'Completado'
+            ],
+            [
+                'name' => 'Pendiente'
+            ],
+            [
+                'name' => 'En desarrollo'
+            ],
+        ];
+
+        foreach ($statuses as $status) {
+            Status::create($status);
+        }
+    }
+}
