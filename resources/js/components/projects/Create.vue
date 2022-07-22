@@ -34,18 +34,14 @@
                 </div>
             </div>
             <div>
-                <label for="status_id">Status</label>
                 <div class="mt-1">
-                    <select
-                        name="status_id"
-                        id="status_id"
-                        class="form-control"
+                    <label for="status_id">Status</label>
+                    <v-select
+                        :options="statuses"
                         v-model="form.status_id"
-                    >
-                        <option value="">Seleccione</option>
-                        <option value="1">Completado</option>
-                        <option value="2">En progreso</option>
-                    </select>
+                        :reduce="(name) => name.id"
+                        label="name"
+                    />
                 </div>
 
                 <div class="text-danger" v-if="errors && errors.status_id">
@@ -59,7 +55,8 @@
 </template>
 <script>
 import useProjects from '../../composables/projects';
-import { reactive } from 'vue';
+import useStatuses from '../../composables/statuses';
+import { reactive, onMounted } from 'vue';
 
 export default {
     setup() {
@@ -70,6 +67,9 @@ export default {
         });
 
         const { errors, storeProject } = useProjects();
+        const { statuses, getStatuses } = useStatuses();
+
+        onMounted(getStatuses);
 
         const saveProject = async () => {
             await storeProject({ ...form });
@@ -79,6 +79,8 @@ export default {
             form,
             errors,
             saveProject,
+            statuses,
+            getStatuses,
         };
     },
 };

@@ -6,6 +6,9 @@ import { createApp } from "vue";
 
 import router from './router/index'
 
+import vSelect from 'vue-select'
+import 'vue-select/dist/vue-select.css';
+
 const app = createApp({
     components: {
         ProjectsIndex
@@ -13,5 +16,7 @@ const app = createApp({
 });
 
 app.use(router)
+
+app.component('v-select', vSelect)
 
 app.mount('#app');
